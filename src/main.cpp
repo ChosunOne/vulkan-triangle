@@ -66,10 +66,6 @@ private:
         setupDebugMessenger();
     }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCSimplifyInspection"
-#pragma ide diagnostic ignored "hicpp-signed-bitwise"
-#pragma ide diagnostic ignored "UnreachableCode"
     void setupDebugMessenger() {
         if (!enableValidationLayers) return;
 
@@ -92,16 +88,12 @@ private:
         createInfo.pUserData = nullptr;
     }
 
-#pragma clang diagnostic pop
-
     void mainLoop() {
         while (!glfwWindowShouldClose(window)) {
             glfwPollEvents();
         }
     }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCSimplifyInspection"
     void cleanup() {
         if (enableValidationLayers) {
             DestroyDebugUtilsMessengerEXT(instance, debugMessenger, nullptr);
@@ -112,7 +104,6 @@ private:
 
         glfwTerminate();
     }
-#pragma clang diagnostic pop
 
     static bool checkValidationLayerSupport() {
         uint32_t layerCount;
@@ -139,8 +130,6 @@ private:
         return true;
     }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCSimplifyInspection"
     static std::vector<const char*> getRequiredExtensions() {
         uint32_t glfwExtensionCount = 0;
         const char** glfwExtensions;
@@ -154,7 +143,6 @@ private:
 
         return extensions;
     }
-#pragma clang diagnostic pop
 
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
             VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -166,10 +154,6 @@ private:
         return VK_FALSE;
     }
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCSimplifyInspection"
-#pragma ide diagnostic ignored "UnreachableCode"
-#pragma ide diagnostic ignored "hicpp-signed-bitwise"
     void createInstance() {
         if (enableValidationLayers && !checkValidationLayerSupport()) {
             throw std::runtime_error("validation layers requested, but not available!");
@@ -207,7 +191,6 @@ private:
             throw std::runtime_error("failed to create instance!");
         }
     }
-#pragma clang diagnostic pop
 };
 
 int main() {
