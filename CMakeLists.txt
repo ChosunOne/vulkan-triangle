@@ -12,5 +12,8 @@ include_directories(${GLFW_INCLUDE_DIRS})
 
 find_package(Vulkan REQUIRED)
 
+find_library(STB_LIB NAMES stb_image.h PATHS $ENV{STB_INCLUDE_PATH})
+include_directories(${STB_LIB})
+
 add_executable(triangle src/main.cpp)
 target_link_libraries(triangle glfw3 ${GLFW_STATIC_LIBRARIES} Vulkan::Vulkan)
